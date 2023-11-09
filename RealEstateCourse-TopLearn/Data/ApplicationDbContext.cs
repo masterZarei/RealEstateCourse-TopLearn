@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RealEstateCourse_TopLearn.Models;
 
 namespace RealEstateCourse_TopLearn.Data
 {
@@ -9,5 +10,6 @@ namespace RealEstateCourse_TopLearn.Data
             : base(options)
         {
         }
+        public DbSet<UserModel> ApplicationUser { get; set; }
     }
 }
