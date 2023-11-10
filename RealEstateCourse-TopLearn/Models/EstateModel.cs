@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RealEstateCourse_TopLearn.Models
 {
@@ -29,6 +30,12 @@ namespace RealEstateCourse_TopLearn.Models
         [Display(Name = "آدرس")]
         [MaxLength(500)]
         public string Address { get; set; }
+
+        public int? CategoryId { get; set; }
+        #region Relation
+        [ForeignKey(nameof(CategoryId))]
+        public CategoryModel? Category { get; set; }
+        #endregion
 
     }
 }
