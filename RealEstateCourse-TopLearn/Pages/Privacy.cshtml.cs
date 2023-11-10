@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RealEstateCourse_TopLearn.Utilities;
 
 namespace RealEstateCourse_TopLearn.Pages
 {
+    [Authorize(Roles = Roles.Admin)]
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;

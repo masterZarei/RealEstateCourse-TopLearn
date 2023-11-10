@@ -17,7 +17,8 @@ namespace RealEstateCourse_TopLearn
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<UserModel>(/*options => options.SignIn.RequireConfirmedAccount = true*/)
+            builder.Services.AddDefaultIdentity<UserModel>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddRazorPages();
