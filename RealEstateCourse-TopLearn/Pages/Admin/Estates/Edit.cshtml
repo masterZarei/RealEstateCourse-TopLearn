@@ -1,5 +1,5 @@
 ﻿@page
-@model RealEstateCourse_TopLearn.Pages.Admin.Estates.CreateModel
+@model RealEstateCourse_TopLearn.Pages.Admin.Estates.EditModel
 @{
 }
 <div class="row mt-5">
@@ -7,7 +7,7 @@
         <div class="text-right">
             <div class="list-group p-0 mb-5">
                 <a href="#" class="active list-group-item list-group-item-action">
-                    ایجاد ملک
+                    ویرایش ملک
                 </a>
             </div>
         </div>
@@ -19,6 +19,8 @@
             </div>
             <div class="card-body">
                 <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="ViewModel.Estate.Image" />
+                    <input type="hidden" asp-for="ViewModel.Estate.Id" />
                     <div asp-validation-summary="ModelOnly"></div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
@@ -46,7 +48,7 @@
                                 <h6 class="custom-file-label text-center"> عکس محصول </h6>
                                 <input asp-for="ViewModel.ImgUp" id="ImgUp" class="custom-file-input" type="file">
                             </div>
-                            <img src="" id="imgPreview" class="border my-1 mx-auto d-block" width="120px" height="120px">
+                            <img src="~/image/Estates/@Model.ViewModel.Estate.Image" id="imgPreview" class="border my-1 mx-auto d-block" width="120px" height="120px">
                         </div>
                     </div>
                     <div class="row my-3">

@@ -2,7 +2,7 @@
 
 namespace RealEstateCourse_TopLearn.Models.ViewModels.EstatesViewModels
 {
-    public class CreateEstateViewModel
+    public class EstateViewModel
     {
         public EstateModel? Estate { get; set; }
 

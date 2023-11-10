@@ -7,19 +7,31 @@ using RealEstateCourse_TopLearn.Models.ViewModels.EstatesViewModels;
 
 namespace RealEstateCourse_TopLearn.Pages.Admin.Estates
 {
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
-        public CreateModel(ApplicationDbContext db)
+        public EditModel(ApplicationDbContext db)
         {
             _db = db;
         }
         [BindProperty]
-        public EstateViewModel? ViewModel { get; set; }
-        public void OnGet()
+        public EstateViewModel ViewModel { get; set; }
+        public async Task<IActionResult> OnGet(int Id)
         {
+            if (Id <= 0)
+            {
+                return NotFound();
+            }
+            var estate = await _db.Estate.FindAsync(Id);
+            if (estate is null)
+            {
+                return NotFound();
+            }
             InitCategories();
+            ViewModel.Estate = estate;
+
+            return Page();
         }
         private void InitCategories()
         {
@@ -56,6 +68,14 @@ namespace RealEstateCourse_TopLearn.Pages.Admin.Estates
             if (ViewModel.ImgUp is not null)
             {
                 string saveDir = "wwwroot/image/Estates";
+
+                if (ViewModel.Estate.Image is not null)
+                {
+                string deletePath = Path.Combine(Directory.GetCurrentDirectory(), saveDir, ViewModel.Estate.Image);
+                if (System.IO.File.Exists(deletePath))
+                    System.IO.File.Delete(deletePath);
+                }
+
                 if (!Directory.Exists(saveDir))
                     Directory.CreateDirectory(saveDir);
 
@@ -66,7 +86,7 @@ namespace RealEstateCourse_TopLearn.Pages.Admin.Estates
             }
             #endregion
             ViewModel.Estate.CategoryId = categoryId;
-            await _db.Estate.AddAsync(ViewModel.Estate);
+            _db.Estate.Update(ViewModel.Estate);
             await _db.SaveChangesAsync();
             return RedirectToPage("Index");
         }
