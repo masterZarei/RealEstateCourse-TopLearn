@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RealEstateCourse_TopLearn.Models.ViewModel
+namespace RealEstateCourse_TopLearn.Models.ViewModels
 {
     public class RegisterViewModel
     {

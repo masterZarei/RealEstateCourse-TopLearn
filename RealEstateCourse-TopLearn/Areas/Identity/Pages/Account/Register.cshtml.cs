@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RealEstateCourse_TopLearn.Models;
-using RealEstateCourse_TopLearn.Models.ViewModel;
+using RealEstateCourse_TopLearn.Models.ViewModels;
 
 namespace RealEstateCourse_TopLearn.Areas.Identity.Pages.Account
 {
