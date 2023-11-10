@@ -1,0 +1,52 @@
+﻿@page
+@model RealEstateCourse_TopLearn.Pages.Admin.Estates.DetailsModel
+@{
+}
+<div class="row mt-5">
+    <div class="col-lg-3 col-md-3 col-12">
+        <div class="text-right">
+            <div class="list-group p-0 mb-5">
+                <a href="#" class="active list-group-item list-group-item-action">
+                    جزئیات ملک
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-center font-weight-bold m-auto"> مدیریت املاک </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <label class="my-2 h6"> نام </label>
+                        <input asp-for="ViewModel.Title" class="form-control" disabled>
+                        <label class="my-2 h6"> متراژ </label>
+                        <input asp-for="ViewModel.Metrage" class="form-control" disabled>
+                        <label class="my-2 h6"> آدرس </label>
+                        <input asp-for="ViewModel.Address" class="form-control" disabled>
+                        <label class="my-2 h6"> توضیحات </label>
+                        <textarea asp-for="ViewModel.Description" class="form-control" disabled></textarea>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <label class="my-2 h6"> نوع </label>
+                        <input value="@Model.ViewModel.Category.Title" class="form-control" disabled>
+                        <label class="my-2 h6"> مبلغ </label>
+                        <input asp-for="ViewModel.Price" class="form-control" disabled>
+                        <label class="my-2 h6 d-block"> عکس </label>
+                        <img src="~/image/Estates/@Model.ViewModel.Image" class="d-block m-auto img-fluid" width="250" height="250">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <a asp-page="Edit" asp-route-Id="@Model.ViewModel.Id" class="btn btn-warning btn-block"> ویرایش </a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <a asp-page="Index" class="btn btn-secondary btn-block"> بازگشت </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
