@@ -1,0 +1,55 @@
+﻿@page
+@model RealEstateCourse_TopLearn.Pages.Admin.Categories.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row mt-5">
+    <partial name="_Panel" />
+    <div class="col-lg-9 col-12">
+        <div class="card pb-4 text-center">
+            <div class="card-header d-flex">
+                <a asp-page="Create" class="btn btn-info text-white"> ایجاد دسته بندی </a>
+                <h4 class="h4 text-center m-auto"> مدیریت دسته بندی ها </h4>
+            </div>
+            <div class="card-body">
+                <div class="card mb-3 shadow">
+                    <div class="card-body">
+                        @if (Model.CategoryModel.Any())
+                        {
+                            <table class="table table-light table-hover table-responsive-sm table-striped table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="text-center">نام دسته بندی</th>
+                                        <th class="text-center"> مدیریت </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model.CategoryModel)
+                                    {
+                                        <tr>
+                                            <td class="text-center"> @item.Title </td>
+                                            <td class="text-center">
+                                                <a asp-page="Delete" asp-route-Id="@item.Id"> <i class="fa fa-trash"></i> </a>
+                                                <a asp-page="Details" asp-route-Id="@item.Id"> <i class="fa fa-list"></i> </a>
+                                                <a asp-page="Edit" asp-route-Id="@item.Id"> <i class="fa fa-edit"></i> </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <h1 class="h4 text-center alert alert-info">دسته بندی ای موجود نمی باشد</h1>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
