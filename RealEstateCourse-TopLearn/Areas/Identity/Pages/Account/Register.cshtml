@@ -4,39 +4,42 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.Input.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
+<div class="login-mother register">
+    <div class="login-register">
+        <h3 class="text-dark text-center"> ورود به سایت </h3>
+        <form method="post" asp-route-returnUrl="@Model.Input.ReturnUrl">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.FullName" class="form-control" aria-required="true" />
-                <label asp-for="Input.FullName">FullName</label>
-                <span asp-validation-for="Input.FullName" class="text-danger"></span>
+
+            <label for="name"> نام و نام خانوادگی : </label>
+            <input asp-for="Input.FullName" id="name">
+            <span asp-validation-for="Input.FullName" class="text-danger"></span>
+
+            <label for="phoneNumber"> شماره همراه : </label>
+            <input asp-for="Input.PhoneNumber"  id="phoneNumber">
+            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+
+            <label for="password"> رمز عبور : </label>
+            <input asp-for="Input.Password" type="password" id="password">
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+            <label for="password2"> تکرار رمز عبور : </label>
+            <input asp-for="Input.ConfirmPassword" type="password" id="password2">
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+
+
+            <div class="login-btn">
+                <button type="submit"> تایید ! </button>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.PhoneNumber" class="form-control" autocomplete="username" aria-required="true"  />
-                <label asp-for="Input.PhoneNumber">PhoneNumber</label>
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.Password">Password</label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+
         </form>
     </div>
 </div>
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+@section Links{
+    <link rel="stylesheet" href="~/css/Login_Register.css" />
+}
+
+
+

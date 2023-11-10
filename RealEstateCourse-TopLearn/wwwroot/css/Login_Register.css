@@ -1,16 +1,7 @@
-.overlay {
-    background-image: url("../image/17.avif");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 120vh;
-    object-fit: cover;
-}
-
 
 .login-mother {
     height: 100%;
-    width: 30%;
+    width: 40%;
     position: relative;
     margin: auto;
     padding-top: 150px;
@@ -23,18 +14,19 @@
 
 .login-mother .login-register {
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(245, 245, 245, 0.5);
     padding: 40px 60px;
     border-radius: 3px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,.2);
 }
 
 .login-register h3 {
-    color: #fff;
+    color: #333;
     text-align: center;
 }
 
 .login-mother .login-register form label {
-    color: #fff;
+    color: #333;
     font-size: 18px;
     margin: 10px 0;
 }
@@ -46,15 +38,18 @@
     border: none;
     outline: none;
     background: #eaeaea;
-    transition: all ease-in-out .3s;
+    transition: all ease-in-out .2s;
 }
 
 
 .login-mother .login-register form input:focus {
-    outline: 2px solid #414141;
-    box-shadow: 2px 2px 20px #414141;
+    outline: 1px solid #414141;
+    box-shadow: 1px 1px 10px #414141;
 }
-
+#checkbox {
+    width: 30px;
+    height: 30px;
+}
 .login-btn {
     width: 100%;
     display: flex;

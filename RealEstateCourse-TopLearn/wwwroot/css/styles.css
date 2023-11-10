@@ -8,7 +8,9 @@
     text-decoration: none;
     text-align: right;
 }
-
+a{
+    text-decoration:none;
+}
 
 header {
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
@@ -87,13 +89,9 @@ nav a.active {
 
 .products {
     margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .product-card {
-    width: 24.53%;
     margin-top: 14px;
     border: 1px solid #e0e0e0;
 }

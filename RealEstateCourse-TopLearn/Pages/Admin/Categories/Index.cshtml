@@ -32,9 +32,11 @@
                                         <tr>
                                             <td class="text-center"> @item.Title </td>
                                             <td class="text-center">
-                                                <a asp-page="Delete" asp-route-Id="@item.Id"> <i class="fa fa-trash"></i> </a>
-                                                <a asp-page="Details" asp-route-Id="@item.Id"> <i class="fa fa-list"></i> </a>
-                                                <a asp-page="Edit" asp-route-Id="@item.Id"> <i class="fa fa-edit"></i> </a>
+                                                <div class="btn-group" dir="ltr" role="group" aria-label="Basic example">
+                                                    <a asp-page="Details" asp-route-Id="@item.Id" class="btn btn-sm btn-info"><i class="fas fa-list"></i></a>
+                                                    <a asp-page="Edit" asp-route-Id="@item.Id" class="btn btn-sm btn-warning"> <i class="fas fa-edit"></i> </a>
+                                                    <a asp-page="Delete" asp-route-Id="@item.Id" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                                </div>
                                             </td>
                                         </tr>
                                     }
