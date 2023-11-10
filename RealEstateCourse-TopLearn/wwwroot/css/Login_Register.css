@@ -1,0 +1,82 @@
+.overlay {
+    background-image: url("../image/17.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 120vh;
+    object-fit: cover;
+}
+
+
+.login-mother {
+    height: 100%;
+    width: 30%;
+    position: relative;
+    margin: auto;
+    padding-top: 150px;
+    display: block;
+}
+
+.register {
+    padding-top: 50px;
+}
+
+.login-mother .login-register {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px 60px;
+    border-radius: 3px;
+}
+
+.login-register h3 {
+    color: #fff;
+    text-align: center;
+}
+
+.login-mother .login-register form label {
+    color: #fff;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.login-mother .login-register form input {
+    width: 100%;
+    padding: 8px 5px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #eaeaea;
+    transition: all ease-in-out .3s;
+}
+
+
+.login-mother .login-register form input:focus {
+    outline: 2px solid #414141;
+    box-shadow: 2px 2px 20px #414141;
+}
+
+.login-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn button {
+    width: 200px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: forestgreen;
+    border: 1px solid green;
+    outline: none;
+    padding: 8px 5px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.login-btn button:focus {
+    outline: none;
+    border: none;
+}

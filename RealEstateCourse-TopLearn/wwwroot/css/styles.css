@@ -1,0 +1,161 @@
+@import url(Login_Register.css);
+@import url(responsive.css);
+* {
+    font-family: Vazir;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    text-decoration: none;
+    text-align: right;
+}
+
+
+header {
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px 60px;
+    border-radius: 0 0 20px 20px;
+}
+
+.container {
+    width: 80% !important;
+    margin: auto !important;
+}
+
+nav {
+    display: flex !important;
+    justify-content: space-between;
+}
+
+nav .ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav .ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+    color: #181616;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    border-bottom: 1px solid #ff4b20;
+}
+
+nav a.active {
+    border-bottom: 2px solid #ff4b20;
+}
+
+.text-title {
+    font-size: 20px;
+    margin: 50px 0;
+}
+
+.text-title .span1 {
+    color: #006396;
+    font-size: 21px;
+    padding: 3px;
+
+}
+
+.text-title .span2 {
+    color: #ff4b20;
+    font-size: 23px;
+    padding: 3px;
+    font-weight: 900;
+}
+
+.banner img {
+    width: 100%;
+    height: 350px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.title h2 {
+    margin-top: 30px;
+    padding: 12px 0;
+    border-bottom: 2px solid #ff4b20;
+}
+
+.products {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-card {
+    width: 24.53%;
+    margin-top: 14px;
+    border: 1px solid #e0e0e0;
+}
+
+.product-card .image img {
+    width: 100%;
+    height: 190px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.mt-2 {
+    margin-top: 10px;
+}
+
+.my-2 {
+    margin: 10px 0;
+}
+
+.card-body {
+    padding: 0 10px;
+}
+
+.address {
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+}
+
+.text-orange {
+    color: #e13f18;
+}
+
+footer {
+    width: 100%;
+    display: flex !important;
+    border-top: 1px solid #888888;
+    margin-top: 20px;
+}
+
+footer div {
+    padding: 20px;
+    width: 33.33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .contactUs {
+    display: flex;
+    flex-direction: column;
+}
+.copy-right {
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0;
+}
+.p-1 {
+    padding: 10px;
+}

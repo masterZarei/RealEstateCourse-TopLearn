@@ -1,0 +1,40 @@
+@media screen and (max-width: 992px) {
+    .intro .logo-header .logo {
+        font-size: 2rem;
+    }
+/*    login - register */
+    .login-mother {
+        width: 50% !important;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .intro .logo-header .logo {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .intro .logo-header .logo {
+        font-size: 20px;
+    }
+    /*    login - register */
+    .login-mother {
+        width: 65% !important;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    /*    login - register */
+    .login-mother {
+        width: 90% !important;
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+    nav ul li a {
+        font-size: 20px;
+    }
+}
