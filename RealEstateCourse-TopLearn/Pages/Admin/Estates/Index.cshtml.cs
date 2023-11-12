@@ -17,7 +17,8 @@ namespace RealEstateCourse_TopLearn.Pages.Admin.Estates
         public List<EstateModel> IndexDto { get; set; }
         public async Task<IActionResult> OnGet()
         {
-            IndexDto = await _db.Estate.ToListAsync();
+            IndexDto = await _db.Estate
+                .ToListAsync();
             return Page();
         }
     }

@@ -24,22 +24,24 @@
         @foreach (var estate in Model.EstatesViewModel)
         {
             <div class="col-lg-4 col-md-6 col-12">
-                <div class="product-card">
-                    <div class="image">
-                        <img src="~/image/Estates/@estate.Image" alt="product1">
+                <a asp-page="EstateDetails" asp-route-Id="@estate.Id">
+                    <div class="product-card">
+                        <div class="image">
+                            <img src="~/image/Estates/@estate.Image" alt="product1">
+                        </div>
+                        <div class="card-body">
+                            <p class="d-flex justify-content-between">
+                                <span> @estate.Title </span>
+                                <span> @estate.Metrage متری </span>
+                            </p>
+                            <p class="mt-2 address">
+                                <i class="fas fa-map-marked-alt text-orange"></i>
+                                @estate.Address
+                            </p>
+                            <p class="my-2"> مبلغ : @estate.Price </p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <p class="d-flex justify-content-between">
-                            <span> @estate.Title </span>
-                            <span> @estate.Metrage متری </span>
-                        </p>
-                        <p class="mt-2 address">
-                            <i class="fas fa-map-marked-alt text-orange"></i>
-                            @estate.Address
-                        </p>
-                        <p class="my-2"> مبلغ : @estate.Price </p>
-                    </div>
-                </div>
+                </a>
             </div>
         }
 

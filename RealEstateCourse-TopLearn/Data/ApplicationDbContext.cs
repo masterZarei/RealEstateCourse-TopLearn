@@ -13,6 +13,6 @@ namespace RealEstateCourse_TopLearn.Data
         public DbSet<UserModel> ApplicationUser { get; set; }
         public DbSet<EstateModel> Estate { get; set; }
         public DbSet<CategoryModel> Category { get; set; }
-
+        public DbSet<FavouriteModel> Favourite { get; set; }
     }
 }
