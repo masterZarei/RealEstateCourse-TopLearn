@@ -34,7 +34,7 @@ namespace RealEstateCourse_TopLearn.Models
         public int? CategoryId { get; set; }
         #region Relation
         [ForeignKey(nameof(CategoryId))]
-        public CategoryModel? Category { get; set; }
+        public virtual CategoryModel? Category { get; set; }
         #endregion
 
     }

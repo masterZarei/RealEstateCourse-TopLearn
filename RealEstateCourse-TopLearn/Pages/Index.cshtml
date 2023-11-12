@@ -18,183 +18,38 @@
 </div>
 <!--    end title-->
 <!--    products-->
-<div class="products row">
-    <div class="col-lg-3 col-md-6 col-12">
-        <div class="product-card">
-            <div class="image">
-                <img src="image/16.jpg" alt="product1">
+@if (Model.EstatesViewModel.Any())
+{
+    <div class="products row">
+        @foreach (var estate in Model.EstatesViewModel)
+        {
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="product-card">
+                    <div class="image">
+                        <img src="~/image/Estates/@estate.Image" alt="product1">
+                    </div>
+                    <div class="card-body">
+                        <p class="d-flex justify-content-between">
+                            <span> @estate.Title </span>
+                            <span> @estate.Metrage متری </span>
+                        </p>
+                        <p class="mt-2 address">
+                            <i class="fas fa-map-marked-alt text-orange"></i>
+                            @estate.Address
+                        </p>
+                        <p class="my-2"> مبلغ : @estate.Price </p>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <p class="d-flex justify-content-between">
-                    <span> آپارتمان </span>
-                    <span> 75 متری </span>
-                </p>
-                <p class="mt-2 address">
-                    <i class="fas fa-map-marked-alt text-orange"></i>
-                    مشهد - الهیه
-                </p>
-                <p class="my-2"> مبلغ : 25/000/000/000 </p>
-            </div>
+        }
 
-
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12">
-        <div class="product-card">
-            <div class="image">
-                <img src="image/10.jpg" alt="product1">
-            </div>
-            <div class="card-body">
-                <p class="d-flex justify-content-between">
-                    <span> آپارتمان </span>
-                    <span> 75 متری </span>
-                </p>
-                <p class="mt-2 address">
-                    <i class="fas fa-map-marked-alt text-orange"></i>
-                    مشهد - الهیه
-                </p>
-                <p class="my-2"> مبلغ : 25/000/000/000 </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12">
-        <div class="product-card">
-            <div class="image">
-                <img src="image/14.jpg" alt="product1">
-            </div>
-            <div class="card-body">
-                <p class="d-flex justify-content-between">
-                    <span> آپارتمان </span>
-                    <span> 75 متری </span>
-                </p>
-                <p class="mt-2 address">
-                    <i class="fas fa-map-marked-alt text-orange"></i>
-                    مشهد - الهیه
-                </p>
-                <p class="my-2"> مبلغ : 25/000/000/000 </p>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12">
-        <div class="product-card">
-            <div class="image">
-                <img src="image/16.jpg" alt="product1">
-            </div>
-            <div class="card-body">
-                <p class="d-flex justify-content-between">
-                    <span> آپارتمان </span>
-                    <span> 75 متری </span>
-                </p>
-                <p class="mt-2 address">
-                    <i class="fas fa-map-marked-alt text-orange"></i>
-                    مشهد - الهیه
-                </p>
-                <p class="my-2"> مبلغ : 25/000/000/000 </p>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12">
-        <div class="product-card">
-            <div class="image">
-                <img src="image/10.jpg" alt="product1">
-            </div>
-            <div class="card-body">
-                <p class="d-flex justify-content-between">
-                    <span> آپارتمان </span>
-                    <span> 75 متری </span>
-                </p>
-                <p class="mt-2 address">
-                    <i class="fas fa-map-marked-alt text-orange"></i>
-                    مشهد - الهیه
-                </p>
-                <p class="my-2"> مبلغ : 25/000/000/000 </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12">
-        <div class="product-card">
-            <div class="image">
-                <img src="image/14.jpg" alt="product1">
-            </div>
-            <div class="card-body">
-                <p class="d-flex justify-content-between">
-                    <span> آپارتمان </span>
-                    <span> 75 متری </span>
-                </p>
-                <p class="mt-2 address">
-                    <i class="fas fa-map-marked-alt text-orange"></i>
-                    مشهد - الهیه
-                </p>
-                <p class="my-2"> مبلغ : 25/000/000/000 </p>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12">
-        <div class="product-card">
-            <div class="image">
-                <img src="image/16.jpg" alt="product1">
-            </div>
-            <div class="card-body">
-                <p class="d-flex justify-content-between">
-                    <span> آپارتمان </span>
-                    <span> 75 متری </span>
-                </p>
-                <p class="mt-2 address">
-                    <i class="fas fa-map-marked-alt text-orange"></i>
-                    مشهد - الهیه
-                </p>
-                <p class="my-2"> مبلغ : 25/000/000/000 </p>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12">
-        <div class="product-card">
-            <div class="image">
-                <img src="image/10.jpg" alt="product1">
-            </div>
-            <div class="card-body">
-                <p class="d-flex justify-content-between">
-                    <span> آپارتمان </span>
-                    <span> 75 متری </span>
-                </p>
-                <p class="mt-2 address">
-                    <i class="fas fa-map-marked-alt text-orange"></i>
-                    مشهد - الهیه
-                </p>
-                <p class="my-2"> مبلغ : 25/000/000/000 </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12">
-        <div class="product-card">
-            <div class="image">
-                <img src="image/14.jpg" alt="product1">
-            </div>
-            <div class="card-body">
-                <p class="d-flex justify-content-between">
-                    <span> آپارتمان </span>
-                    <span> 75 متری </span>
-                </p>
-                <p class="mt-2 address">
-                    <i class="fas fa-map-marked-alt text-orange"></i>
-                    مشهد - الهیه
-                </p>
-                <p class="my-2"> مبلغ : 25/000/000/000 </p>
-            </div>
-
-
-        </div>
     </div>
 
-</div>
+}
+else
+{
+    <h3 class="alert alert-info text-center"> ملکی موجود نیست! </h3>
+}
 <!--    end products-->
 
 <footer>
