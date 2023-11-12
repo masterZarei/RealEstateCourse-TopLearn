@@ -19,7 +19,7 @@
             <h6 class="mt-3"> آدرس :  </h6> <p> @Model.EstateViewModel.Estate.Address  </p>
 
             <form method="post">
-                <button class="btn btn-info" type="submit"> افزودن به علاقه مندی ها <i class="fas fa-heart text-danger"></i> </button>
+                <button asp-page-handler="AddToFavourites" asp-route-Id="@Model.EstateViewModel.Estate.Id" class="btn btn-info" type="submit"> افزودن به علاقه مندی ها <i class="fas fa-heart text-danger"></i> </button>
             </form>
 
         </div>

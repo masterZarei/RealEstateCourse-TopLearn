@@ -22,9 +22,9 @@ namespace RealEstateCourse_TopLearn.Pages
             {
                 return NotFound();
             }
-           var Estate = await _db.Estate
-                .Include(c => c.Category)
-                .FirstOrDefaultAsync(e => e.Id == Id);
+            var Estate = await _db.Estate
+                 .Include(c => c.Category)
+                 .FirstOrDefaultAsync(e => e.Id == Id);
             if (Estate is null)
             {
                 return NotFound();
@@ -33,12 +33,41 @@ namespace RealEstateCourse_TopLearn.Pages
             {
                 Estate = Estate,
                 SuggestedProducts = _db.Estate
-                .Include(c=>c.Category)
-                .Where(e=>e.Category.Title == Estate.Category.Title && e.Id != Estate.Id)
+                .Include(c => c.Category)
+                .Where(e => e.Category.Title == Estate.Category.Title && e.Id != Estate.Id)
                 .Take(4)
                 .ToList()
             };
             return Page();
+        }
+        public async Task<IActionResult> OnPostAddToFavourites(int Id)
+        {
+            if (User is null || !User.Identity.IsAuthenticated)
+            {
+                return Redirect("/Identity/Account/Login?returnUrl=/EstateDetails?Id=" + Id);
+            }
+
+            if (Id <= 0)
+            {
+                return NotFound();
+            }
+            var estate = await _db.Estate.FirstOrDefaultAsync(e => e.Id == Id);
+            if (estate is null)
+            {
+                return NotFound();
+            }
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity.Name);
+            var checkIfRedundant = await _db.Favourite.FirstOrDefaultAsync(f => f.UserId == user.Id && f.EstateId == Id);
+            if (checkIfRedundant is null)
+            {
+                await _db.AddAsync(new FavouriteModel()
+                {
+                    EstateId = Id,
+                    UserId = user.Id
+                });
+                await _db.SaveChangesAsync();
+            }
+            return RedirectToPage("EstateDetails", new { Id });
         }
     }
 }
