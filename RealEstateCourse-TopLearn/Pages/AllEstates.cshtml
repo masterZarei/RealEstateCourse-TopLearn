@@ -1,23 +1,7 @@
 ﻿@page
-@model IndexModel
+@model RealEstateCourse_TopLearn.Pages.AllEstatesModel
 @{
-    ViewData["Title"] = "Home page";
 }
-
-
-<h4 class="text-title"> به سایت <span class="span1">مشاورین املاک </span> <span class="span2"> تاپ لرن</span> خوش آمدید !</h4>
-
-<!--    banner-->
-<div class="banner">
-    <img src="image/15.jpg" alt="">
-</div>
-<!--    end banner-->
-<!--    title-->
-<div class="title">
-    <h2> تازه ترین املاک تاپ لرن </h2>
-</div>
-<!--    end title-->
-<!--    products-->
 @if (Model.EstatesViewModel.Any())
 {
     <div class="products row">
@@ -46,16 +30,6 @@
         }
 
     </div>
-    <h5 class="text-center mt-3">
-        <a href="/AllEstates">
-            مشاهده همه املاک
-        </a>
-    </h5>
-}
-else
-{
-    <h3 class="alert alert-info text-center"> ملکی موجود نیست! </h3>
-}
-<!--    end products-->
 
+}
 <partial name="_Footer" />

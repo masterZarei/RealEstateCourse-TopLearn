@@ -1,0 +1,34 @@
+﻿@using RealEstateCourse_TopLearn.Models.ViewModels;
+@inject SignInManager<UserModel> SignInManager
+@inject UserManager<UserModel> UserManager
+@model HeaderViewModel
+
+<header>
+    <nav>
+        <!--   صفحات = خانه - املاک-->
+        <div class="ul d-flex justify-content-center align-items-center">
+            <li><a class="active" href="/">خانه</a></li>
+            <li><a href="/AllEstates"> املاک </a></li>
+        </div>
+        <!--            logo-->
+        <div class="logo">
+            <h3> مشاورین املاک تاپ لرن </h3>
+        </div>
+        <!--            ورود - ثبت نام-->
+        <div class="d-flex justify-content-center align-items-center">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a href="/Panel/Favourites" title="Manage">سلام @Model?.FullName</a>
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                    <button type="submit" class=" btn btn-link">خروج</button>
+                </form>
+            }
+            else
+            {
+                <a asp-area="Identity" asp-page="/Account/Register">ثبت نام</a>
+                <a asp-area="Identity" asp-page="/Account/Login">ورود</a>
+            }
+
+        </div>
+    </nav>
+</header>

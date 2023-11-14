@@ -1,11 +1,19 @@
-﻿<div class="col-lg-3 col-md-3 col-12">
+﻿@using RealEstateCourse_TopLearn.Utilities;
+<div class="col-lg-3 col-md-3 col-12">
     <div class="text-right">
         <div class="list-group p-0 mb-5">
-            <a href="/Admin/Estates" class=" list-group-item list-group-item-action">
-                مدیریت املاک
-            </a>
-            <a href="/Admin/Categories" class=" list-group-item list-group-item-action">
-                مدیریت دسته بندی ها
+            @if (User.IsInRole(Roles.Admin))
+            {
+                <a href="/Panel/Admin/Estates" class=" list-group-item list-group-item-action">
+                    مدیریت املاک
+                </a>
+                <a href="/Panel/Admin/Categories" class=" list-group-item list-group-item-action">
+                    مدیریت دسته بندی ها
+                </a>
+            }
+
+            <a href="/Panel/Admin/Categories" class=" list-group-item list-group-item-action">
+                مدیریت علاقه مندی ها
             </a>
         </div>
     </div>

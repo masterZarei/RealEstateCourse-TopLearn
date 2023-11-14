@@ -1,0 +1,83 @@
+﻿@page
+@model RealEstateCourse_TopLearn.Pages.Panel.Admin.Estates.EditModel
+@{
+}
+<div class="row mt-5">
+    <partial name="_Panel" />
+
+    <div class="col-lg-9 col-md-9 col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-center font-weight-bold m-auto"> مدیریت املاک </h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="ViewModel.Estate.Image" />
+                    <input type="hidden" asp-for="ViewModel.Estate.Id" />
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <label class="my-2 h6"> عنوان </label>
+                            <input asp-for="ViewModel.Estate.Title" class="form-control">
+                            <span asp-validation-for="ViewModel.Estate.Title"></span>
+                            <label class="my-2 h6"> متراژ </label>
+                            <input asp-for="ViewModel.Estate.Metrage" class="form-control">
+                            <span asp-validation-for="ViewModel.Estate.Metrage"></span>
+                            <label class="my-2 h6"> آدرس </label>
+                            <input asp-for="ViewModel.Estate.Address" class="form-control">
+                            <span asp-validation-for="ViewModel.Estate.Address"></span>
+                            <label class="my-2 h6"> توضیحات </label>
+                            <textarea asp-for="ViewModel.Estate.Description" class="form-control"></textarea>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <label class="my-2 h6"> نوع </label>
+                            <select class="form-control" asp-for="ViewModel.SelectedCategory" asp-items="Model.ViewModel.CategoryOptions"></select>
+                            <span asp-validation-for="ViewModel.SelectedCategory"></span>
+                            <label class="my-2 h6"> مبلغ </label>
+                            <input asp-for="ViewModel.Estate.Price" class="form-control">
+                            <span asp-validation-for="ViewModel.Estate.Price"></span>
+                            <label class="my-2 h6"> عکس </label>
+                            <div class="custom-file my-1">
+                                <h6 class="custom-file-label text-center"> عکس محصول </h6>
+                                <input asp-for="ViewModel.ImgUp" id="ImgUp" class="custom-file-input" type="file">
+                            </div>
+                            <img src="~/image/Estates/@Model.ViewModel.Estate.Image" id="imgPreview" class="border my-1 mx-auto d-block" width="120px" height="120px">
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <button type="submit" class="btn btn-success btn-block"> تایید </button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <a asp-page="Index" class="btn btn-secondary btn-block"> بازگشت </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgPreview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+        $("#ImgUp").change(function () {
+            readURL(this);
+        });
+    </script>
+}

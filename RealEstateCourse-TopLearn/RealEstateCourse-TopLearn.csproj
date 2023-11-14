@@ -25,11 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Admin\Estates\Create.cshtml" />
+    <UpToDateCheckInput Remove="Pages\Panel\Admin\Estates\Create.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\Admin\Estates\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\AllEstates.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Panel\Admin\Estates\Create.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\AllEstates.cshtml" />
   </ItemGroup>
 
 </Project>

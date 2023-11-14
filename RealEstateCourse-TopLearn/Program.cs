@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RealEstateCourse_TopLearn.Data;
 using RealEstateCourse_TopLearn.Models;
+using RealEstateCourse_TopLearn.Utilities;
 
 namespace RealEstateCourse_TopLearn
 {
@@ -21,7 +22,16 @@ namespace RealEstateCourse_TopLearn
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            builder.Services.AddRazorPages();
+            #region Authorization
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy(AuthorizationPolicies.AdminPolicy, p => p.RequireRole(Roles.Admin));
+            });
+            builder.Services.AddRazorPages(options =>
+            {
+                options.Conventions.AuthorizeFolder("/Panel/Admin", AuthorizationPolicies.AdminPolicy);
+            });
+            #endregion
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -41,6 +51,7 @@ namespace RealEstateCourse_TopLearn
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapRazorPages();

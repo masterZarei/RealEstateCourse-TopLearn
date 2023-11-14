@@ -34,7 +34,7 @@ namespace RealEstateCourse_TopLearn.Pages
                 Estate = Estate,
                 SuggestedProducts = _db.Estate
                 .Include(c => c.Category)
-                .Where(e => e.Category.Title == Estate.Category.Title && e.Id != Estate.Id)
+                .Where(e => e.Id != Estate.Id)
                 .Take(4)
                 .ToList()
             };

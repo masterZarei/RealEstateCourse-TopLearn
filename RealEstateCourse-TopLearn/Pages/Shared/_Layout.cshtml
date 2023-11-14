@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using RealEstateCourse_TopLearn.Models;
-@inject SignInManager<UserModel> SignInManager
-@inject UserManager<UserModel> UserManager
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,35 +19,7 @@
 <body>
     <div class="container">
         <!--    header-->
-        <header>
-            <nav>
-                <!--   صفحات = خانه - املاک-->
-                <div class="ul d-flex justify-content-center align-items-center">
-                    <li><a class="active" href="/">خانه</a></li>
-                    <li><a href="#"> املاک </a></li>
-                </div>
-                <!--            logo-->
-                <div class="logo">
-                    <h3> مشاورین املاک تاپ لرن </h3>
-                </div>
-                <!--            ورود - ثبت نام-->
-                <div class="d-flex justify-content-center align-items-center">
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">سلام @User.Identity?.Name!</a>
-                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                            <button type="submit" class=" btn btn-link">خروج</button>
-                        </form>
-                    }
-                    else
-                    {
-                        <a asp-area="Identity" asp-page="/Account/Register">ثبت نام</a>
-                        <a asp-area="Identity" asp-page="/Account/Login">ورود</a>
-                    }
-
-                </div>
-            </nav>
-        </header>
+        @await Component.InvokeAsync("HeaderComponent")
         <!--end header-->
         @RenderBody()
     </div>
