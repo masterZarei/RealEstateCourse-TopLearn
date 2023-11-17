@@ -4,8 +4,12 @@
     width: 40%;
     position: relative;
     margin: auto;
-    padding-top: 150px;
+    padding-top: 50px;
     display: block;
+}
+.LoginRegister-link {
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
 }
 
 .register {

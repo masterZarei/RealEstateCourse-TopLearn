@@ -303,10 +303,11 @@ namespace RealEstateCourse_TopLearn.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("EstateId")
+                    b.Property<int>("EstateId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -394,11 +395,15 @@ namespace RealEstateCourse_TopLearn.Migrations
                 {
                     b.HasOne("RealEstateCourse_TopLearn.Models.EstateModel", "Estate")
                         .WithMany()
-                        .HasForeignKey("EstateId");
+                        .HasForeignKey("EstateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("RealEstateCourse_TopLearn.Models.UserModel", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Estate");
 

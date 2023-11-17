@@ -1,12 +1,12 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "ثبت نام";
 }
 
 <div class="login-mother register">
     <div class="login-register">
-        <h3 class="text-dark text-center"> ورود به سایت </h3>
+        <h3 class="text-dark text-center"> ثبت نام </h3>
         <form method="post" asp-route-returnUrl="@Model.Input.ReturnUrl">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
@@ -26,6 +26,9 @@
             <input asp-for="Input.ConfirmPassword" type="password" id="password2">
             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
 
+            <a class="text-dark LoginRegister-link d-block" asp-page="Login">
+                قبلا ثبت نام کرده اید؟ وارد شوید.
+            </a>
 
             <div class="login-btn">
                 <button type="submit"> تایید ! </button>

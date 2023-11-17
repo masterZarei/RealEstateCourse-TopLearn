@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RealEstateCourse_TopLearn.Migrations
 {
     /// <inheritdoc />
-    public partial class initDb : Migration
+    public partial class InitDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -50,6 +50,20 @@ namespace RealEstateCourse_TopLearn.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Category",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Category", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -159,20 +173,6 @@ namespace RealEstateCourse_TopLearn.Migrations
                 });
 
             migrationBuilder.CreateTable(
-               name: "Category",
-               columns: table => new
-               {
-                   Id = table.Column<int>(type: "int", nullable: false)
-                       .Annotation("SqlServer:Identity", "1, 1"),
-                   Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                   Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true)
-               },
-               constraints: table =>
-               {
-                   table.PrimaryKey("PK_Category", x => x.Id);
-               });
-
-            migrationBuilder.CreateTable(
                 name: "Estate",
                 columns: table => new
                 {
@@ -194,7 +194,33 @@ namespace RealEstateCourse_TopLearn.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Category",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete:ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Favourite",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EstateId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Favourite", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Favourite_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Favourite_Estate_EstateId",
+                        column: x => x.EstateId,
+                        principalTable: "Estate",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -240,6 +266,16 @@ namespace RealEstateCourse_TopLearn.Migrations
                 name: "IX_Estate_CategoryId",
                 table: "Estate",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Favourite_EstateId",
+                table: "Favourite",
+                column: "EstateId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Favourite_UserId",
+                table: "Favourite",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -261,13 +297,16 @@ namespace RealEstateCourse_TopLearn.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Estate");
+                name: "Favourite");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Estate");
 
             migrationBuilder.DropTable(
                 name: "Category");

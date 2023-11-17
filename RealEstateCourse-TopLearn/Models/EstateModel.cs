@@ -32,6 +32,7 @@ namespace RealEstateCourse_TopLearn.Models
         public string Address { get; set; }
 
         public int? CategoryId { get; set; }
+
         #region Relation
         [ForeignKey(nameof(CategoryId))]
         public virtual CategoryModel? Category { get; set; }

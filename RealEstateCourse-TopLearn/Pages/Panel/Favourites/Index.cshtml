@@ -1,17 +1,18 @@
 ﻿@page
 @model RealEstateCourse_TopLearn.Pages.Panel.Favourites.IndexModel
 @{
+    ViewData["Title"] = "علاقه مندی ها";
 }
 <div class="row mt-5">
     <partial name="_Panel" />
     @if (Model.Favourites.Any())
     {
         <div class="col-lg-9 col-12">
-            <div class="products row">
+            <div class="row">
                 @foreach (var favourite in Model.Favourites)
                 {
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <a asp-page="EstateDetails" asp-route-Id="@favourite.Estate.Id">
+                    <div class="col-lg-5 col-md-6 col-12">
+                        <a asp-page="/EstateDetails" asp-route-Id="@favourite.Estate.Id">
                             <div class="product-card">
                                 <div class="image">
                                     <img src="~/image/Estates/@favourite.Estate.Image" alt="product1">
@@ -25,7 +26,7 @@
                                         <i class="fas fa-map-marked-alt text-orange"></i>
                                         @favourite.Estate.Address
                                     </p>
-                                    <p class="my-2"> مبلغ : @favourite.Estate.Price </p>
+                                    <p class="my-2"> مبلغ : @favourite.Estate.Price.ToToman() </p>
                                 </div>
                             </div>
                         </a>

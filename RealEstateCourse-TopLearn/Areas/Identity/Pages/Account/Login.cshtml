@@ -2,7 +2,7 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "ورود";
 }
 
 <div class="login-mother">
@@ -23,6 +23,9 @@
                 <input asp-for="Input.RememberMe" id="checkbox" class="form-control ml-2" type="checkbox">
                 <label for="checkbox"> مرا به خاطر بسپار؟ </label>
             </div>
+            <a class="text-dark LoginRegister-link d-block" asp-page="Register">
+                حساب کاربری ندارید؟ ثبت نام کنید
+            </a>
             <div class="login-btn">
                 <button type="submit" class="btn btn-success"> تایید ! </button>
             </div>

@@ -28,17 +28,17 @@ namespace RealEstateCourse_TopLearn.Pages.Panel.Admin.Estates
             {
                 return NotFound();
             }
+            ViewModel = new()
+            {
+                Estate = estate
+            };
             InitCategories();
-            ViewModel.Estate = estate;
 
             return Page();
         }
         private void InitCategories()
         {
-            ViewModel = new()
-            {
-                CategoryOptions = new SelectList(_db.Category, nameof(CategoryModel.Id), nameof(CategoryModel.Title))
-            };
+            ViewModel.CategoryOptions = new SelectList(_db.Category, nameof(CategoryModel.Id), nameof(CategoryModel.Title),ViewModel?.Estate?.CategoryId);
         }
         public async Task<IActionResult> OnPost()
         {
@@ -71,9 +71,9 @@ namespace RealEstateCourse_TopLearn.Pages.Panel.Admin.Estates
 
                 if (ViewModel.Estate.Image is not null)
                 {
-                string deletePath = Path.Combine(Directory.GetCurrentDirectory(), saveDir, ViewModel.Estate.Image);
-                if (System.IO.File.Exists(deletePath))
-                    System.IO.File.Delete(deletePath);
+                    string deletePath = Path.Combine(Directory.GetCurrentDirectory(), saveDir, ViewModel.Estate.Image);
+                    if (System.IO.File.Exists(deletePath))
+                        System.IO.File.Delete(deletePath);
                 }
 
                 if (!Directory.Exists(saveDir))

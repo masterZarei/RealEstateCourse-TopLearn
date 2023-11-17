@@ -12,8 +12,8 @@ using RealEstateCourse_TopLearn.Data;
 namespace RealEstateCourse_TopLearn.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231111044008_initDb")]
-    partial class initDb
+    [Migration("20231117134653_InitDb")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -298,6 +298,30 @@ namespace RealEstateCourse_TopLearn.Migrations
                     b.ToTable("Estate");
                 });
 
+            modelBuilder.Entity("RealEstateCourse_TopLearn.Models.FavouriteModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EstateId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EstateId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favourite");
+                });
+
             modelBuilder.Entity("RealEstateCourse_TopLearn.Models.UserModel", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -368,6 +392,25 @@ namespace RealEstateCourse_TopLearn.Migrations
                         .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("RealEstateCourse_TopLearn.Models.FavouriteModel", b =>
+                {
+                    b.HasOne("RealEstateCourse_TopLearn.Models.EstateModel", "Estate")
+                        .WithMany()
+                        .HasForeignKey("EstateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RealEstateCourse_TopLearn.Models.UserModel", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Estate");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("RealEstateCourse_TopLearn.Models.CategoryModel", b =>

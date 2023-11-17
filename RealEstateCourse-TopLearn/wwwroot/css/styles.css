@@ -9,11 +9,10 @@
     text-decoration: none;
     text-align: right;
 }
-
-    a:hover {
-        text-decoration: none !important;
-    }
-
+a, a:hover {
+    color: inherit !important;
+    text-decoration: none !important;
+}
 
 header {
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
@@ -94,7 +93,7 @@ nav {
 }
 
 .product-card {
-    margin-top: 14px;
+    /*margin-top: 14px;*/
     border: 1px solid #e0e0e0;
 }
 
